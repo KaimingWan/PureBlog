@@ -142,30 +142,6 @@ def index(*, page='1'):
         'blogs': blogs
     }
 
-# 显示所有的用户
-
-
-@get('/show_all_users')
-def show_all_users():
-    users = yield from User.findAll()
-    logging.info('to index...')
-    # return (404, 'not found')
-
-    return {
-        '__template__': 'test.html',
-        'users': users
-    }
-
-# 返回所有的用户信息jason格式
-
-
-@get('/api/users')
-def api_get_users(request):
-    users = yield from User.findAll(orderBy='created_at desc')
-    logging.info('users = %s and type = %s' % (users, type(users)))
-    for u in users:
-        u.passwd = '******'
-    return dict(users=users)
 
 # @get('/api/users')
 # def api_get_users(*, page='1'):
@@ -369,6 +345,29 @@ def api_delete_comments(id, request):
 # -----------------------------------------------------用户管理------------------------------------
 
 
+@get('/show_all_users')
+def show_all_users():
+    # 显示所有的用户
+    users = yield from User.findAll()
+    logging.info('to index...')
+    # return (404, 'not found')
+
+    return {
+        '__template__': 'test.html',
+        'users': users
+    }
+
+
+@get('/api/users')
+def api_get_users(request):
+    # 返回所有的用户信息jason格式
+    users = yield from User.findAll(orderBy='created_at desc')
+    logging.info('users = %s and type = %s' % (users, type(users)))
+    for u in users:
+        u.passwd = '******'
+    return dict(users=users)
+
+
 @get('/manage/users')
 def manage_users(*, page='1'):
     # 查看所有用户
@@ -484,8 +483,6 @@ def api_modify_blog(request, *, id, name, summary, content):
         raise APIValueError('summary', 'summary cannot be empty')
     if not content or not content.strip():
         raise APIValueError('content', 'content cannot be empty')
-
-
 
     # 获取指定id的blog数据
     blog = yield from Blog.find(id)

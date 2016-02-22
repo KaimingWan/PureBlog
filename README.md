@@ -52,6 +52,6 @@ web框架在此处主要用于对aiohttp库的方法做更高层次的封装，�
 3. 其他还有很多坑，可以参考我代码注释
 
 # 参考资料
-1.[aiohttp官方文档](http://aiohttp.readthedocs.org/en/stable/web.html)
-2.[廖雪峰的python教程](http://www.liaoxuefeng.com/)
-3.[python3官方文档](https://docs.python.org/3/library/)
+1. [aiohttp官方文档](http://aiohttp.readthedocs.org/en/stable/web.html)
+2. [廖雪峰的python教程](http://www.liaoxuefeng.com/)
+3. [python3官方文档](https://docs.python.org/3/library/)

@@ -41,14 +41,14 @@ class APIPermissionError(object):
             'permission:forbidden', 'permission', message)
 
 
-# 页面属性
+# 用于分页
 class Page(object):
 
     """docstring for Page"""
     # 参数说明：
     # item_count：要显示的条目数量
     # page_index：要显示的是第几页
-    # page_size：每页的条目数量
+    # page_size：每页的条目数量，为了方便测试现在显示为2条
 
     def __init__(self, item_count, page_index=1, page_size=2):
         self.item_count = item_count
