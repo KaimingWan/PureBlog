@@ -1,5 +1,7 @@
 # PureBlog
-一个用python3.5.1实现的个人博客网站，内含自己实现的简易版ORM框架和Web框架，欢迎查看学习
+一个用python3.5.1实现的个人博客网站，内含自己实现的简易版ORM框架和Web框架，欢迎查看学习。
+
+演示网站PureBlog: [点我查看](http://115.28.155.42/)
 
 
 基本按照[廖雪峰的python教程](http://www.liaoxuefeng.com/)实战部分来编写，添加了大量注释。如果部分注释不够清楚和完整，也欢迎您来添加更多注释，欢迎发起pull request来完善注释和功能。
@@ -11,6 +13,7 @@
 2. aiohttp: 支持异步http服务器
 3. jinja2: python的模板引擎
 4. aiomysql: aiomysql针对asyncio框架用于访问mysql的库
+
 
 所有的库都可以通过pip安装
 
@@ -25,6 +28,9 @@ www
 	- config_default.py:默认的配置文件信息
 	- config_override.py:自定义的配置文件信息
 	- config.py:默认和自定义配置文件合并
+	- markdown2.py:支持markdown显示的插件
+	- pymonnitor.py: 用于支持自动检测代码改动重启服务
+	- test_orm.py: 用于测试orm框架的正确性
 
 
 ## orm.py实现思路
@@ -50,6 +56,16 @@ web框架在此处主要用于对aiohttp库的方法做更高层次的封装，�
 1. asyncio不支持async/await关键字
 2. mysql当中用特殊符号`(Tab键上面的符号)
 3. 其他还有很多坑，可以参考我代码注释
+
+## 关于部署的问题
+1. 部署可以不采用廖老师所说的fabric，只需在linux服务器上安装git然后代码拷贝过来运行即可
+2. Nginx配置文件中直接将反向代理交给你自己写的http服务器，也就是127.0.0.1:9000
+3. 部署到服务器上之后记得修改页面__base__.html那几处ip为你的公网ip。
+
+## 关于服务器的问题
+服务器我采用CentOS 7，在使用过程需要先安装python3然后使用pip3安装相应的环境。CentOS上安装python3可以参考我的文章
+[CentOS 7安装python3](http://kaimingwan.com/post/linux/centos-7an-zhuang-python3)
+
 
 # 参考资料
 1. [aiohttp官方文档](http://aiohttp.readthedocs.org/en/stable/web.html)
