@@ -29,20 +29,19 @@
 所有的库都可以通过pip安装
 
 # 代码结构
-www
-
-	- static:存放静态资源
-	- templates:存放模板文件
-	- app.py: HTTP服务器以及处理HTTP请求；拦截器、jinja2模板、URL处理函数注册等
-	- orm.py: ORM框架
-	- web_frame.py(廖老师教程中的coroweb.py): 封装aiohttp，即写个装饰器更好的从Request对象获取参数和返回Response对象
-	- apis.py: 定义几个错误异常类和Page类用于分页
-	- config_default.py:默认的配置文件信息
-	- config_override.py:自定义的配置文件信息
-	- config.py:默认和自定义配置文件合并
-	- markdown2.py:支持markdown显示的插件
-	- pymonnitor.py: 用于支持自动检测代码改动重启服务
-	- test_orm.py: 用于测试orm框架的正确性
+    www
+		- static:存放静态资源
+		- templates:存放模板文件
+		- app.py: HTTP服务器以及处理HTTP请求；拦截器、jinja2模板、URL处理函数注册等
+		- orm.py: ORM框架
+		- web_frame.py(廖老师教程中的coroweb.py): 封装aiohttp，即写个装饰器更好的从Request对象获取参数和返回Response对象
+		- apis.py: 定义几个错误异常类和Page类用于分页
+		- config_default.py:默认的配置文件信息
+		- config_override.py:自定义的配置文件信息
+		- config.py:默认和自定义配置文件合并
+		- markdown2.py:支持markdown显示的插件
+		- pymonnitor.py: 用于支持自动检测代码改动重启服务
+		- test_orm.py: 用于测试orm框架的正确性
 
 
 ## orm.py实现思路
